@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaFin · Crédito Corporativo</title>
+
+  <!-- Tipografías: Fraunces (titulares institucionales) + Inter (UI / formulario) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS vía CDN (Play CDN, sin build step) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Fraunces', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            aurum: {
+              DEFAULT: '#C9A227',
+              soft: '#E4C766',
+            },
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-slate-900 text-white font-sans antialiased selection:bg-aurum/30">
+  <div class="min-h-screen grid grid-cols-1 lg:grid-cols-2">
+
+    <!-- ===================== Columna izquierda: propuesta de valor ===================== -->
+    <section class="relative flex flex-col justify-between px-8 py-12 sm:px-14 lg:py-16 border-b border-slate-800 lg:border-b-0 lg:border-r border-slate-800">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="h-2 w-2 rounded-full bg-aurum"></span>
+          <span class="text-sm font-medium tracking-wide text-slate-300">NovaFin</span>
+        </div>
+
+        <h1 class="mt-10 font-display font-medium text-4xl sm:text-5xl leading-[1.1] text-slate-50 max-w-lg">
+          Capital de trabajo pensado para el ritmo real de tu empresa
+        </h1>
+
+        <p class="mt-6 text-slate-400 leading-relaxed max-w-md">
+          Una línea de crédito corporativa que se adapta a tus ciclos de cobranza, no al revés.
+          Sin letras pequeñas, sin sorpresas en el estado de cuenta.
+        </p>
+
+        <!-- Beneficios separados por regla vertical (no numerados: no son un proceso secuencial) -->
+        <div class="mt-12 space-y-6">
+          <div class="border-l-2 border-aurum/50 pl-4">
+            <p class="text-slate-100 font-medium">Línea revolvente hasta $15,000,000 MXN</p>
+            <p class="text-sm text-slate-500 mt-1">Se ajusta automáticamente a tu flujo de caja mensual.</p>
+          </div>
+          <div class="border-l-2 border-slate-700 pl-4">
+            <p class="text-slate-100 font-medium">Resolución en 48 horas hábiles</p>
+            <p class="text-sm text-slate-500 mt-1">Comité de crédito dedicado a empresas medianas.</p>
+          </div>
+          <div class="border-l-2 border-slate-700 pl-4">
+            <p class="text-slate-100 font-medium">Verificación conductual, no solo documental</p>
+            <p class="text-sm text-slate-500 mt-1">
+              Escudo Conductual protege tu solicitud analizando cómo se llena el formulario, nunca lo que escribes.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <dl class="mt-16 flex gap-10 pt-8 border-t border-slate-800">
+        <div>
+          <dt class="text-sm text-slate-500">Tasa preferencial desde</dt>
+          <dd class="mt-1 font-display text-2xl text-aurum-soft">11.4%</dd>
+        </div>
+        <div>
+          <dt class="text-sm text-slate-500">Empresas activas</dt>
+          <dd class="mt-1 font-display text-2xl text-aurum-soft">2,340</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ===================== Columna derecha: formulario ===================== -->
+    <section class="flex items-center justify-center px-6 py-14 sm:px-14 bg-slate-950/40">
+      <div class="w-full max-w-md">
+        <h2 class="font-display text-2xl text-slate-50">Solicita tu evaluación</h2>
+        <p class="mt-2 text-sm text-slate-500">Toma menos de tres minutos. Un asesor te contacta el mismo día hábil.</p>
+
+        <!-- id="escudo-form" es el único contrato que main.js necesita para funcionar -->
+        <form id="escudo-form" class="mt-8 space-y-5" novalidate>
+          <div>
+            <label for="nombre" class="block text-sm font-medium text-slate-300 mb-1.5">Nombre completo</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              autocomplete="name"
+              required
+              class="w-full rounded-lg bg-slate-800/60 border border-slate-700 px-3.5 py-2.5 text-slate-50 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-aurum/60 focus:border-aurum/60 transition"
+              placeholder="Como aparece en tu identificación"
+            />
+          </div>
+
+          <div>
+            <label for="curp" class="block text-sm font-medium text-slate-300 mb-1.5">CURP</label>
+            <input
+              type="text"
+              id="curp"
+              name="curp"
+              maxlength="18"
+              required
+              class="w-full rounded-lg bg-slate-800/60 border border-slate-700 px-3.5 py-2.5 text-slate-50 placeholder-slate-600 uppercase focus:outline-none focus:ring-2 focus:ring-aurum/60 focus:border-aurum/60 transition"
+              placeholder="XXXX000000XXXXXX00"
+            />
+          </div>
+
+          <div>
+            <label for="rfc" class="block text-sm font-medium text-slate-300 mb-1.5">RFC</label>
+            <input
+              type="text"
+              id="rfc"
+              name="rfc"
+              maxlength="13"
+              required
+              class="w-full rounded-lg bg-slate-800/60 border border-slate-700 px-3.5 py-2.5 text-slate-50 placeholder-slate-600 uppercase focus:outline-none focus:ring-2 focus:ring-aurum/60 focus:border-aurum/60 transition"
+              placeholder="XXXX000000XX0"
+            />
+          </div>
+
+          <div>
+            <label for="telefono" class="block text-sm font-medium text-slate-300 mb-1.5">Teléfono</label>
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              autocomplete="tel"
+              required
+              class="w-full rounded-lg bg-slate-800/60 border border-slate-700 px-3.5 py-2.5 text-slate-50 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-aurum/60 focus:border-aurum/60 transition"
+              placeholder="10 dígitos"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="w-full rounded-lg bg-aurum text-slate-950 font-semibold py-3 mt-2 hover:bg-aurum-soft focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-aurum transition"
+          >
+            Enviar solicitud
+          </button>
+
+          <p class="text-xs text-slate-600 text-center pt-1">
+            Protegido por Escudo Conductual. Tus datos de tecleo nunca se almacenan.
+          </p>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
